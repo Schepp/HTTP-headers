@@ -1,0 +1,14 @@
+{
+  "name": "HTML_Days_2014_Workshop",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "bower": "~1.2.8",
+    "grunt": "~0.4.1",
+    "grunt-autoprefixer": "^3.0.3",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "dependencies": {
+    "grunt-sass": "^2.0.0"
+  }
+}

@@ -1,0 +1,126 @@
+@charset "UTF-8";
+body {
+  background: #000; }
+
+.reveal {
+  color: #fff;
+  font-size: 60px; }
+  .reveal h1 {
+    font-size: 2em; }
+  .reveal h2 {
+    font-size: 1.25em; }
+  .reveal h3 {
+    font-size: 1.1em; }
+  .reveal h4 {
+    font-size: 1em; }
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal ol, .reveal ul, .reveal p, .reveal table, .reveal pre {
+    margin-bottom: 2rem;
+    color: #fff; }
+    html.inverted .reveal h1, html.inverted .reveal h2, html.inverted .reveal h3, html.inverted .reveal h4, html.inverted .reveal h5, html.inverted .reveal h6, html.inverted .reveal ol, html.inverted .reveal ul, html.inverted .reveal p, html.inverted .reveal table, html.inverted .reveal pre {
+      color: #FFF;
+      text-shadow: 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000, -1px 1px 2px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
+  .reveal a:not(.image) {
+    color: rgba(255, 255, 255, 0.8); }
+  .reveal pre {
+    box-shadow: none; }
+  .reveal code {
+    background-color: #3F3F3F; }
+  .reveal pre code {
+    max-height: 90vh;
+    -webkit-filter: none;
+            filter: none;
+    text-shadow: none;
+    box-shadow: inset 0 0 0 2px #666; }
+  html.faded .reveal .backgrounds {
+    opacity: 0.5;
+    background-blend-mode: multiply; }
+  html.grayscaled .reveal .backgrounds {
+    -webkit-filter: greyscale(1);
+            filter: greyscale(1); }
+  .reveal .right {
+    margin-left: 33%; }
+  .reveal pre + pre {
+    margin-top: -1em; }
+  .reveal section img,
+  .reveal section video {
+    border: none;
+    background: transparent;
+    box-shadow: none; }
+    .reveal section img[src$=".jpg"],
+    .reveal section video[src$=".jpg"] {
+      -webkit-filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF);
+              filter: drop-shadow(0 0 1px #CCC) drop-shadow(0 0 10px #FFF); }
+  .reveal li {
+    margin-bottom: 1rem; }
+  .reveal table {
+    table-layout: fixed;
+    width: 100%;
+    max-width: 1900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em 0;
+    font-size: 1em;
+    border-top: 1px solid currentcolor;
+    border-bottom: 1px solid currentcolor; }
+    .smaller .reveal table {
+      font-size: 0.8em; }
+    .reveal table th, .reveal table td {
+      padding: 0.1em 0.2em;
+      white-space: nowrap;
+      text-align: center;
+      border-bottom: 0.05em dotted #666; }
+      .reveal table th:first-child, .reveal table td:first-child {
+        text-align: left; }
+      .reveal table th img, .reveal table td img {
+        margin: 0;
+        border: none;
+        background: transparent;
+        box-shadow: none; }
+  .reveal video {
+    width: auto;
+    height: 80%; }
+  .reveal .datatable + table {
+    font-size: 0.5em;
+    line-height: 1.4;
+    border-collapse: collapse; }
+    .reveal .datatable + table tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.5); }
+    .reveal .datatable + table th, .reveal .datatable + table td {
+      text-align: left; }
+  .reveal blockquote {
+    quotes: "“" "”" "‘" "’";
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    font-style: italic;
+    text-align: left;
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
+    .reveal blockquote > *:last-child {
+      margin-bottom: 0; }
+    .reveal blockquote:before, .reveal blockquote:after {
+      position: absolute;
+      font-family: Times, serif;
+      font-size: 150%;
+      font-weight: bold; }
+    .reveal blockquote:before {
+      top: 0;
+      right: 102%;
+      content: open-quote; }
+    .reveal blockquote:after {
+      bottom: -20px;
+      left: 102%;
+      content: close-quote;
+      vertical-align: bottom; }
+  .reveal .multicolumn {
+    font-size: 0.6em;
+    -webkit-column-count: 2;
+    -ms-column-count: 2;
+    -o-column-count: 2;
+    column-count: 2; }
+  .reveal .slide-background:nth-child(3n+1) {
+    background-color: #1f61a8; }
+  .reveal .slide-background:nth-child(3n+2) {
+    background-color: #088e4c; }
+  .reveal .slide-background:nth-child(3n+3) {
+    background-color: #9a3e48; }
