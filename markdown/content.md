@@ -8,7 +8,7 @@
 
 ---
 
-A `Save-Data: on` request header Signals that the user wants less data to be consumed
+A `Save-Data: on` request header signals that the user wants less data to be consumed
 
 <p class="fragment">*HTTP-served* resources then get transformed by data saving proxies with certain browsers: HTML, CSS and JS get minified, media gets heavily compressed</p>
 
@@ -59,6 +59,7 @@ It needs the expiration day's weekday:<br>`Expires: Sun, 03 Feb 2019 16:25:41 GM
 <p class="fragment">`public`: Proxies are allowed to cache the resource</p>
 <p class="fragment">`immutable`: Resource shall never be checked again</p>
 
+<span class="fragment">_</span>
 ---
 
 What if you messed up client side caching and need a resource uncached?
@@ -92,6 +93,7 @@ Client Hints allow for proactive content negotiation. They can tell the server a
   <li class="fragment">`Device-Memory: 0.5`: The devices's main memory in GiB</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
 The following additional Client Hints are currently being specified...
@@ -102,6 +104,7 @@ The following additional Client Hints are currently being specified...
   <li class="fragment">`Downlink: 1`: Current effective bandwidth in Mb/s</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
 Client Hints use must be activated/opted in by the server:
@@ -120,7 +123,7 @@ Accept-CH: DPR, Width, Viewport-Width
 Accept-CH-Lifetime: 86400
 ```
 
-In this case the server wants to get sent Client Hints for the next 24 hours.
+In this case the server wants to receive Client Hints for the next 24 hours.
 ---
 
 After activating Client Hints, this is what the browser will start sending:
@@ -154,6 +157,8 @@ The `Vary` response header...
 
 <p class="fragment">...needs to be sent by your server</p>
 <p class="fragment">...always refers to headers sent by the clients</p>
+
+<span class="fragment">_</span>
 ---
 
 A few examples...
@@ -166,6 +171,7 @@ A few examples...
   <li class="fragment">`Vary: Save-Data, Accept, Accept-Encoding, DPR`: look at all four</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
 Set `Cache-Control: private` for authenticated users, so that their responses don't get cached by proxies.
@@ -197,7 +203,7 @@ Link: <https://domain.com/styles.css>; rel=preload; as=style
 </p>
 ---
 
-If the server is HTTP/2 Push enabled it will force push any (local) resource listed with a Link header. 
+If the server is HTTP/2 Push enabled it will force-push any (local) resource listed with a Link header. 
 
 <p class="fragment">
 If you don't want that to happen, add a `nopush` attribute to it:
@@ -236,11 +242,11 @@ Real world scenarios where Feature Policies help enforce performance best practi
 <ul>
   <li class="fragment">Marketing department uses Google Tag Manager and you don't want bad programming practices to be introduced onto your site</li>
   <li class="fragment">People with some sort of access to the HTML output add render blocking A/B testing</li>
-  <li class="fragment">These same people inserting badly written code</li>
   <li class="fragment">You have 3rd Party on your site but you want to limit its negative impact</li>
   <li class="fragment">You have advertisement using video on your site and you don't want it to autoplay</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
 Out of the many policies existing the following ones are the most interesting ones for web performance:
@@ -252,9 +258,10 @@ Out of the many policies existing the following ones are the most interesting on
   <li class="fragment">`lazyload`: Force all images and iframe to load lazily (as if all had lazyload-attribute)</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
-...continued:
+(continued)
 
 <ul>
   <li class="fragment">`image-compression`: restrict images to have a byte size no more than 10x bigger than their pixel count</li>
@@ -263,6 +270,7 @@ Out of the many policies existing the following ones are the most interesting on
   <li class="fragment">`layout-animations`: turns off CSS animation for any property that triggers a re-layout (e.g. `top`, `width`, `max-height`)</li>
 </ul>
 
+<span class="fragment">_</span>
 ---
 
 ## Server Timing Headers
@@ -299,6 +307,7 @@ Server-Timing: db;dur=53, app;dur=47.2
 * Slides: [http://schepp.github.io/HTTP-headers/](http://schepp.github.io/HTTP-headers/)
 * Twitter: [@derSchepp](https://twitter.com/derSchepp) (English)
 * Podcast: [Working Draft](http://workingdraft.de) (German)
+* Meetup: [Webworker NRW](https://www.meetup.com/Webworker-NRW/) (Düsseldorf!!! 🙈)
 ---
 
 ## Links
