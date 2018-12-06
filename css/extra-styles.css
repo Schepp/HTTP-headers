@@ -8,25 +8,34 @@ body {
   .reveal h1 {
     font-size: 2em; }
   .reveal h2 {
-    font-size: 1.25em; }
+    font-size: 1.5em; }
   .reveal h3 {
-    font-size: 1.1em; }
+    padding-bottom: 0.25em;
+    font-size: 1.5em;
+    text-transform: none; }
   .reveal h4 {
     font-size: 1em; }
   .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal ol, .reveal ul, .reveal p, .reveal table, .reveal pre {
     margin-bottom: 2rem;
-    color: #fff; }
+    color: #fff;
+    line-height: 1.25; }
     html.inverted .reveal h1, html.inverted .reveal h2, html.inverted .reveal h3, html.inverted .reveal h4, html.inverted .reveal h5, html.inverted .reveal h6, html.inverted .reveal ol, html.inverted .reveal ul, html.inverted .reveal p, html.inverted .reveal table, html.inverted .reveal pre {
       color: #FFF;
       text-shadow: 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000, -1px 1px 2px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
   .reveal a:not(.image) {
     color: rgba(255, 255, 255, 0.8); }
   .reveal pre {
-    box-shadow: none; }
+    box-shadow: none;
+    font-size: inherit;
+    text-transform: none; }
   .reveal code {
-    background-color: #3F3F3F; }
+    padding: 0 10px;
+    background-color: #3F3F3F;
+    font-size: 0.8em;
+    text-transform: none; }
   .reveal pre code {
     max-height: 90vh;
+    padding: 4px 10px;
     -webkit-filter: none;
             filter: none;
     text-shadow: none;
@@ -35,8 +44,8 @@ body {
     opacity: 0.5;
     background-blend-mode: multiply; }
   html.grayscaled .reveal .backgrounds {
-    -webkit-filter: greyscale(1);
-            filter: greyscale(1); }
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1); }
   .reveal .right {
     margin-left: 33%; }
   .reveal pre + pre {
