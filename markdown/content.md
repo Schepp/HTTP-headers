@@ -296,7 +296,7 @@ Server-Timing: db;dur=53, app;dur=47.2
 <br><br><br><br><br><br>
 ## That's about it. Thank you!
 
-* Slides: [http://schepp.github.io/HTTP-headers](http://schepp.github.io/HTTP-headers)
+* Slides: [http://schepp.github.io/HTTP-headers/](http://schepp.github.io/HTTP-headers/)
 * Twitter: [@derSchepp](https://twitter.com/derSchepp) (English)
 * Podcast: [Working Draft](http://workingdraft.de) (German)
 ---
