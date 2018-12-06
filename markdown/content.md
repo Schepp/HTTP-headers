@@ -312,13 +312,13 @@ Server-Timing: db;dur=53, app;dur=47.2
 
 ## Links
 
-[Delivering Fast and Light Applications with Save-Data](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/)
-[The headers we don't want](https://www.fastly.com/blog/headers-we-dont-want)
-[Cache-Control: immutable](http://bitsup.blogspot.com/2016/05/Cache-Control-immutable.html)
-[Best Practices for Using the Vary Header](https://www.fastly.com/blog/best-practices-using-vary-header)
-[Deploying WebP via Accept Content Negotiation](https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/)
-[What Are Client Hints and Are They Worth Implementing](https://www.keycdn.com/blog/client-hints)
-[Preload](https://w3c.github.io/preload/)
-[Feature Policies List](https://www.chromestatus.com/features/6218263637786624)
-[WICG Feature Policy](https://github.com/WICG/feature-policy)
-[Server Timing Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
+* [Delivering Fast and Light Applications with Save-Data](https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/save-data/)
+* [The headers we don't want](https://www.fastly.com/blog/headers-we-dont-want)
+* [Cache-Control: immutable](http://bitsup.blogspot.com/2016/05/Cache-Control-immutable.html)
+* [Best Practices for Using the Vary Header](https://www.fastly.com/blog/best-practices-using-vary-header)
+* [Deploying WebP via Accept Content Negotiation](https://www.igvita.com/2013/05/01/deploying-webp-via-accept-content-negotiation/)
+* [What Are Client Hints and Are They Worth Implementing](https://www.keycdn.com/blog/client-hints)
+* [Preload](https://w3c.github.io/preload/)
+* [Feature Policies List](https://www.chromestatus.com/features/6218263637786624)
+* [WICG Feature Policy](https://github.com/WICG/feature-policy)
+* [Server Timing Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
