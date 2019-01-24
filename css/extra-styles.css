@@ -4,7 +4,8 @@ body {
 
 .reveal {
   color: #fff;
-  font-size: 60px; }
+  font-size: 60px;
+  letter-spacing: 0; }
   .reveal h1 {
     font-size: 2em; }
   .reveal h2 {
@@ -15,13 +16,11 @@ body {
     text-transform: none; }
   .reveal h4 {
     font-size: 1em; }
-  .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal ol, .reveal ul, .reveal p, .reveal table, .reveal pre {
+  .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6, .reveal ol, .reveal ul, .reveal p, .reveal table, .reveal pre, .reveal code {
     margin-bottom: 2rem;
     color: #fff;
-    line-height: 1.25; }
-    html.inverted .reveal h1, html.inverted .reveal h2, html.inverted .reveal h3, html.inverted .reveal h4, html.inverted .reveal h5, html.inverted .reveal h6, html.inverted .reveal ol, html.inverted .reveal ul, html.inverted .reveal p, html.inverted .reveal table, html.inverted .reveal pre {
-      color: #FFF;
-      text-shadow: 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000, -1px 1px 2px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
+    line-height: 1.25;
+    text-shadow: 1px 1px 2px #0002, 1px -1px 2px #0002, -1px -1px 2px #0002, -1px 1px 2px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
   .reveal a:not(.image) {
     color: rgba(255, 255, 255, 0.8); }
   .reveal pre {
@@ -30,15 +29,15 @@ body {
     text-transform: none; }
   .reveal code {
     padding: 0 10px;
-    background-color: #3F3F3F;
+    background-color: #222;
     font-size: 0.8em;
     text-transform: none; }
   .reveal pre code {
     max-height: 90vh;
-    padding: 4px 10px;
+    padding: 10px 20px;
     -webkit-filter: none;
             filter: none;
-    text-shadow: none;
+    color: #fff;
     box-shadow: inset 0 0 0 2px #666; }
   html.faded .reveal .backgrounds {
     opacity: 0.5;
@@ -48,8 +47,6 @@ body {
             filter: grayscale(1); }
   .reveal .right {
     margin-left: 33%; }
-  .reveal pre + pre {
-    margin-top: -1em; }
   .reveal section img,
   .reveal section video {
     border: none;
@@ -101,10 +98,9 @@ body {
     position: relative;
     margin-bottom: 1rem;
     padding: 1rem 1.5rem;
-    background-color: rgba(0, 0, 0, 0.9);
     font-style: italic;
     text-align: left;
-    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5); }
+    box-shadow: none; }
     .reveal blockquote > *:last-child {
       margin-bottom: 0; }
     .reveal blockquote:before, .reveal blockquote:after {
@@ -122,7 +118,6 @@ body {
       content: close-quote;
       vertical-align: bottom; }
   .reveal .multicolumn {
-    font-size: 0.6em;
     -webkit-column-count: 2;
     -ms-column-count: 2;
     -o-column-count: 2;
