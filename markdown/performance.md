@@ -63,12 +63,16 @@ It needs the expiration day's weekday:<br>`Expires: Sun, 03 Feb 2019 16:25:41 GM
 or
 
 `Cache-Control: stale-while-revalidate=1200`
+
+The client takes a cached version, followed by fetching an update
 ---
 `Cache-Control: stale-if-error`
 
 or 
 
 ` Cache-Control: max-age=600, stale-if-error=1200`
+
+The client uses a cached version if the server throws an error
 
 Applies to 500, 502, 503, or 504 HTTP response status codes
 ---
@@ -87,7 +91,7 @@ or
 
 `Clear-Site-Data: "cache"`
 
-all clear a client's (cached) data
+all of the above clear a client's (cached) data
 ---
 <!-- .slide: data-background="" data-state="inverted" -->
 
@@ -110,7 +114,7 @@ Client Hints allow for proactive content negotiation. They can tell the server a
 The following additional Client Hints are currently being specified...
 
 <ul>
-  <li class="fragment">`ECT: 3g`: Current overall effective network type</li>
+  <li class="fragment">`ECT: 4g`: Current overall effective network type</li>
   <li class="fragment">`RTT: 300`: Current effective round-trip time in milliseconds</li>
   <li class="fragment">`Downlink: 1`: Current effective bandwidth in Mb/s</li>
 </ul>
@@ -127,7 +131,7 @@ Accept-CH: DPR, Width, Viewport-Width
 <p class="fragment">Which means that the first call to a server will always be w/o Client Hints</p>
 ---
 
-Servers may also tell the client for how long it wants there hints sent over (as a time delta from now):
+Servers may also tell the client for how long it wants hints to be sent over (as a time delta from now):
 
 ```
 Accept-CH: DPR, Width, Viewport-Width
@@ -168,6 +172,7 @@ The `Vary` response header...
 
 <p class="fragment">...needs to be sent by your server</p>
 <p class="fragment">...always refers to headers sent by the clients</p>
+<p class="fragment">...works like a unique key in a MySQL database</p>
 
 <span class="fragment">_</span>
 ---
@@ -286,7 +291,7 @@ Out of the many policies existing the following ones are the most interesting on
 
 <ul>
   <li class="fragment">`image-compression`: restrict images to have a byte size no more than 10x bigger than their pixel count</li>
-  <li class="fragment">`maximum-downscaling-image`: restrict images to be downscaled by more than 2x</li>
+  <li class="fragment">`maximum-downscaling-image`: restrict images to be downscaled by not more than 2x</li>
   <li class="fragment">`unsized-media`: requires images to have a width & height specified, otherwise defaults to 300 x 150</li>
   <li class="fragment">`layout-animations`: turns off CSS animation for any property that triggers a re-layout (e.g. `top`, `width`, `max-height`)</li>
 </ul>
@@ -316,10 +321,13 @@ Server-Timing: db;dur=53, app;dur=47.2
 ```
 
 ---
+Server Timings in the Devtools
 
 ![Server Timings](images/server-timings.jpg)
 
 ---
+Server Timings accessible for JavaScript
+
 ```
 Server-Timing: cache;desc="Cache Read";dur=23.2
 ```
@@ -331,6 +339,8 @@ console.log(pageEntry.serverTiming);
 // {name: "cache", duration: 23.2, description: "Cache Read"}
 ```
 ---
+Messing with the Server-Timing header :)
+
 ```
 Server-Timing: data;desc="{\"ab-testgroup\": \"b\"}";dur=0
 ```
