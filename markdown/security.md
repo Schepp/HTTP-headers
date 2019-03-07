@@ -22,7 +22,7 @@ Strict-Transport-Security: max-age=31536000; includeSubDomains
 ---
 Or you use on of the HTTPS-only TLDs, like `.dev` or `.app`<br>(there is 45 of them right now)
 ---
-If you want you domain to be included in that internal browser list then add the `preload` flag like so
+If you want your domain to be included in that internal browser list then add the `preload` flag like so
 
 ```
 Strict-Transport-Security: max-age=31536000; 
@@ -58,17 +58,19 @@ Content Security Policy will hep us again!
 Content-Security-Policy: upgrade-insecure-requests;
 ```
 
-Upgrades all embedded resources to be requested via HTTPS.
+Transparently upgrades all embedded resources to be requested via HTTPS.
 ---
-This: `<img src="http://.../logo.png">`
+This: 
 
-<p class="fragment">now becomes this: `<img src="https://.../logo.png">`</p>
+`<img src="http://.../logo.png">`
 
-<p class="fragment">before the request is ever issued.</p>
+<p class="fragment">now <em>virtually</em> becomes this:<br> 
+<br>
+`<img src="https://.../logo.png">`</p>
 ---
 ## Protecting yourself from XSS attacks via CSP
 ---
-Limit the amount of damage an attacker can cause by setting a `<base>` element:
+Limit the amount of damage an attacker can cause by injecting a manipulated `<base>` element:
 
 ```
 Content-Security-Policy: base-uri 'self'
