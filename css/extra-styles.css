@@ -10,6 +10,9 @@ body {
     font-size: 2em; }
   .reveal h2 {
     font-size: 1.5em; }
+  .reveal h1 + h2 {
+    margin-top: -1em;
+    text-transform: none; }
   .reveal h3 {
     padding-bottom: 0.25em;
     font-size: 1.5em;
@@ -20,7 +23,7 @@ body {
     margin-bottom: 2rem;
     color: #fff;
     line-height: 1.25;
-    text-shadow: 1px 1px 2px #0002, 1px -1px 2px #0002, -1px -1px 2px #0002, -1px 1px 2px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 4px #0002, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
+    text-shadow: 1px 1px 2px #000, 1px -1px 2px #000, -1px -1px 2px #000, -1px 1px 2px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 4px #000, 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px rgba(0, 0, 0, 0.5); }
   .reveal a:not(.image) {
     color: rgba(255, 255, 255, 0.8); }
   .reveal pre {
