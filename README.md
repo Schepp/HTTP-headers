@@ -3,7 +3,7 @@ HTTP Headers - The Hidden Champions
 
 Talk Slides: [https://schepp.github.io/HTTP-headers/](https://schepp.github.io/HTTP-headers/) 
 
-Video: [Microsoft Technical Summit 2016 | HTTP/2 - die Zukunft beginnt jetzt](https://channel9.msdn.com/Events/microsoft-techncial-summit/Technical-Summit-2016/HTTP2-die-Zukunft-beginnt-jetzt)
+Talk Video: [Microsoft Technical Summit 2016 | HTTP/2 - die Zukunft beginnt jetzt](https://channel9.msdn.com/Events/microsoft-techncial-summit/Technical-Summit-2016/HTTP2-die-Zukunft-beginnt-jetzt)
 
 ---
 
