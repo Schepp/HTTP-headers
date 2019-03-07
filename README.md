@@ -1,8 +1,6 @@
 HTTP Headers - The Hidden Champions
 ======
 
-![Cover Image](images/backgrounds/http.jpg)
-
 Talk Slides: [https://schepp.github.io/HTTP-headers/](https://schepp.github.io/HTTP-headers/)
 
 ---
