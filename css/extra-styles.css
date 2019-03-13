@@ -11,7 +11,7 @@ body {
   .reveal h2 {
     font-size: 1.5em; }
   .reveal h1 + h2 {
-    margin-top: -1em;
+    margin-top: -0.5em;
     text-transform: none; }
   .reveal h3 {
     padding-bottom: 0.25em;

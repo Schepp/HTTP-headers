@@ -3,8 +3,6 @@ HTTP Headers - The Hidden Champions
 
 Talk Slides: [https://schepp.github.io/HTTP-headers/](https://schepp.github.io/HTTP-headers/) 
 
-Talk Video: [Microsoft Technical Summit 2016 | HTTP/2 - die Zukunft beginnt jetzt](https://channel9.msdn.com/Events/microsoft-techncial-summit/Technical-Summit-2016/HTTP2-die-Zukunft-beginnt-jetzt)
-
 ---
 
 Every call we send to and receive from a web server is accompanied by more or less metadata, also known as the HTTP headers. Usually, those headers stay hidden in the shadows and we barely notice them - and we underestimate their powers. But ignoring them is a mistake! There is a lot happening around them lately. During The last couple of years a lot of new and powerful headers have emerged which, when applied correctly, help us harden our web applications against attacks and make our sites load a lot faster. That's why in this talk, I'm gonna give you the modern take on how to make the web more secure & fast.
