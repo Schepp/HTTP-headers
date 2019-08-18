@@ -4,7 +4,7 @@
 ---
 ## Encryption
 ---
-Force browsers to load you site over HTTPS only via HTTP Strict Transport Security (HSTS) header:
+Force browsers to load your site over HTTPS only via HTTP Strict Transport Security (HSTS) header:
 
 ```
 strict-transport-security: max-age=31536000
@@ -20,7 +20,7 @@ And you can include subdomains as well:
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 ```
 ---
-Or you use on of the HTTPS-only TLDs, like `.dev` or `.app`<br>(there is 45 of them right now)
+Or you use one of the HTTPS-only TLDs, like `.dev` or `.app`<br>(there is 45 of them right now)
 ---
 If you want your domain to be included in that internal browser list then add the `preload` flag like so
 
@@ -52,7 +52,7 @@ What if you need to migrate a legacy site from HTTP to HTTPS?
 
 <p class="fragment">Stuffed with HTTP-non-S-resources</p>
 ---
-Content Security Policy will hep us again!
+Content Security Policy will help us again!
 
 ```
 Content-Security-Policy: upgrade-insecure-requests;
@@ -131,7 +131,7 @@ Content-Security-Policy: frame-ancestors 'self';
 ---
 ## Simulating CSP
 ---
-If turning on CSP scares you at the beginning, you can still run it as a simulation and log away any potential violations for futher inspection.
+If turning on CSP scares you at the beginning, you can still run it as a simulation and log away any potential violations for further inspection.
 
 To do that, switch:
 
@@ -169,7 +169,7 @@ Right now a server processes every request in the same way, regardless of contex
 
 This fact is being used in Cross-Site-Request-Forgery (CSRF) attacks.
 
-e.g. a image gets injected that points to<br>`http://fritz.box/setpassword?value=1234`<br>(`fritz.box` being a household's router)
+e.g. an image gets injected that points to<br>`http://fritz.box/setpassword?value=1234`<br>(`fritz.box` being a household's router)
 ---
 The new `Sec-Metadata` header wants to mitigate this threat. 
 
