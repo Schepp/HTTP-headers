@@ -38,7 +38,7 @@ Another use case would be if you need to paint an image from another host on a `
 Then you need to add a `crossorigin` attribute to the image...
 
 ```html
-<img src="https://other-origin.com">
+<img src="https://other-origin.com" crossorigin>
 ``` 
 
 ... and set `Access-Control-Allow-Origin: *` on the server.
