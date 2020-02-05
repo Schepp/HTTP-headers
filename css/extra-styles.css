@@ -131,3 +131,9 @@ body {
     background-color: #088e4c; }
   .reveal .slide-background:nth-child(3n+3) {
     background-color: #9a3e48; }
+  .reveal blockquote {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    background: transparent;
+    border: none; }

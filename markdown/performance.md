@@ -360,3 +360,5 @@ const data = JSON.parse(pageEntry.serverTiming.description);
 ```
 ---
 <!-- .slide: data-background="images/backgrounds/performance.jpg" data-state="inverted faded" -->
+
+&lt;/performance&gt;

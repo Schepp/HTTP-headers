@@ -2,7 +2,104 @@
 
 # SECURITY
 ---
+
+## Starting easy: CORS
+
+---
+
+When is CORS relevant?
+
+<ul>
+  <li class="fragment">Making cross-origin XHR requests</li>
+  <li class="fragment">Making cross-origin Fetch requests</li>
+  <li class="fragment">Using cross-origin images in a `<canvas>`</li>
+</ul>
+
+<p class="fragment">Otherwise you don't need to bother about CORS.</p>
+
+---
+
+Once you **do want** to make a reading cross-origin Fetch request, then the receiving server must send a header allowing this:
+
+```
+Access-Control-Allow-Origin: https://your-site.com
+```
+
+or simply
+
+```
+Access-Control-Allow-Origin: *
+```
+
+---
+
+Another use case would be if you need to paint an image from another host on a `<canvas>`.
+
+Then you need to add a `crossorigin` attribute to the image...
+
+```html
+<img src="https://other-origin.com">
+``` 
+
+... and set `Access-Control-Allow-Origin: *` on the server.
+ 
+---
+
+If you need to read from a server that...
+
+* that has basic auth
+* that has JWT auth
+* that has session based auth (cookies)
+
+...then the wildcard is not allowed anymore.
+
+```
+Access-Control-Allow-Origin: https://your-site.com
+```
+
+---
+
+This has nothing to do with
+
+```
+Access-Control-Allow-Credentials: true
+```
+
+<p class="fragment">This just tells the browser that it may expose authentication cookies or tokens to JavaScript.</p>
+
+---
+
+If you want to modify data be sending e.g. a POST, PUT, or DELETE request, then the server explicitely needs to allow those methods:
+
+```
+Access-Control-Allow-Methods: POST, GET, OPTIONS
+Access-Control-Allow-Origin: *
+```
+
+<p class="fragment">Don't forget to also set `GET` and `OPTIONS`.</p>
+
+---
+
+Since the browser will only see the `Access-Control-Allow-Methods` upon its first request to the server, and since you don't want the `POST` to be sent from the wrong origin, what it will do first is do a so-called...
+
+<br>
+
+> Preflight Request
+
+---
+
+## Preflight Request
+
+The Preflight Request is a very light-weight `OPTIONS` request to the target URL.
+
+It will check the answer for suited CORS header.
+
+Only if they match will it follow up with the real `POST` request.
+
+---
+
 ## Encryption
+
 ---
 Force browsers to load your site over HTTPS only via HTTP Strict Transport Security (HSTS) header:
 
@@ -13,6 +110,7 @@ strict-transport-security: max-age=31536000
 <p class="fragment">The `max-age` directive specifies the time, in seconds, that the browser must now use only HTTPS to access the site that issued the policy.</p>
 
 <p class="fragment">Better start off with a low value!</p>
+
 ---
 And you can include subdomains as well:
 
@@ -97,10 +195,11 @@ Content-Security-Policy:
 CSP also allows you to specifically whitelist the use of certain browser features on a given page, via `sandbox` directive:
 
 ```
-Content-Security-Policy: sandbox allow-same-origin;
+Content-Security-Policy: sandbox <value>;
 ``` 
 
 <ul class="multicolumn">
+  <li class="fragment">`allow-downloads-without-user-activation`</li>
   <li class="fragment">`allow-forms`</li>
   <li class="fragment">`allow-modals`</li>
   <li class="fragment">`allow-orientation-lock`</li>
@@ -115,7 +214,7 @@ Content-Security-Policy: sandbox allow-same-origin;
 
 <span class="fragment">_</span>
 ---
-## Stopping other pages from framing you (2019 edition)
+## Stopping other pages from framing you (2020 edition)
 ---
 The old way of stopping your site being framed:
 
@@ -123,7 +222,7 @@ The old way of stopping your site being framed:
 X-Frame-Options: DENY
 ```
 
-the new way to do that is again via CSP:
+the new way to do that is, again, via CSP:
 
 ```
 Content-Security-Policy: frame-ancestors 'self';
@@ -171,24 +270,82 @@ This fact is being used in Cross-Site-Request-Forgery (CSRF) attacks.
 
 e.g. an image gets injected that points to<br>`http://fritz.box/setpassword?value=1234`<br>(`fritz.box` being a household's router)
 ---
-The new `Sec-Metadata` header wants to mitigate this threat. 
+The new "Fetch Metadata Headers" want to mitigate this threat. 
 
-It requires browsers to send extra metadata depending on how the request came to be.
+They require browsers to send extra metadata depending on how the request came to be.
+
+```html
+<img src="http://fritz.box/setpassword?value=1234">
+```
 
 ```
-// <picture>
-Sec-Metadata: initiator=imageset, destination=image, 
-  site=cross-site, target=subresource
+Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: cross-site
+```
 
-// Top-level navigation
-Sec-Metadata: initiator="", destination=document, 
-  site=cross-site, target=top-level, cause=user-activation
+<p class="fragment">Now the server at `http://fritz.box` can decide not to execute it.</p>
 
-// <iframe> navigation
-Sec-Metadata: initiator="", destination=document, 
-  site=same-site, target=nested, cause=forced
-``` 
-
-<p class="fragment">Now the server can decide what to do with it.</p>
 ---
+
+* `Sec-Fetch-Dest: document`: top level navigation & `<iframe>`
+* `Sec-Fetch-Dest: image`: `<img>` or `<picture>`
+* `Sec-Fetch-Dest: worker`: Web Worker
+* `Sec-Fetch-Dest: empty`: `fetch()` API
+
+---
+
+* `Sec-Fetch-Mode: navigate`: top level navigation
+* `Sec-Fetch-Mode: nested-navigate`: `<iframe>`
+* `Sec-Fetch-Mode: cors`: request is bucketed in the "CORS" requests 
+* `Sec-Fetch-Mode: no-cors`: request is bucketed in the no "CORS" requests 
+* `Sec-Fetch-Mode: same-origin`: `fetch()` API 
+
+---
+
+* `Sec-Fetch-Site: same-origin`: from `example.com` to `example.com`
+* `Sec-Fetch-Site: same-site`: from `example.com` to `assets.example.com`
+* `Sec-Fetch-Site: cross-site`: from `example.com` to `assets.xyz.com`
+* `Sec-Fetch-Site: none`: user entered the address in the URL bar
+
+---
+
+### Further examples
+
+```
+// Top-level navigation https://example.com 
+// to https://example.com/ caused
+// by a user’s click on an in-page link:
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+```
+
+---
+
+```
+// Top-level navigation from https://example.com 
+// to https://not-example.com/ caused
+// by JavaScript or <meta>:
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: cross-site
+```
+
+---
+
+```
+// <iframe> navigation from https://example.com 
+// to https://example.com/ caused
+// by JavaScript or <meta>:
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: nested-navigate
+Sec-Fetch-Site: same-origin
+```
+
+---
+
 <!-- .slide: data-background="images/backgrounds/security.jpg" data-state="inverted faded" -->
+
+&lt;/security&gt;

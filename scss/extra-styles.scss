@@ -193,4 +193,10 @@ body {
       background-color: #9a3e48;
     }
   }
+
+  blockquote {
+    width: max-content;
+    background: transparent;
+    border: none;
+  }
 }
