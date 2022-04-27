@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "bower": "~1.2.8",
-    "grunt": "~0.4.1",
+    "grunt": "~1.5.2",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-contrib-watch": "~0.5.3"
   },
